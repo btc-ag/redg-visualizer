@@ -1,0 +1,83 @@
+/*
+ * Copyright 2017 BTC Business Technology AG
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+svg {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+svg .entity-box {
+    fill: white;
+    stroke: darkgrey;
+    stroke-width: 2;
+    pointer-events: visible;
+    cursor: pointer;
+}
+
+svg text {
+    cursor: pointer;
+}
+
+svg .entity-separator-line {
+    stroke: lightgray;
+    stroke-width: 2;
+}
+
+svg .explicit-attribute {
+    font-size: 0.8em;
+}
+
+svg .existing .entity-box {
+    fill: lightgrey;
+    stroke: grey;
+}
+
+
+svg .dummy .entity-box {
+    fill: #80b3ff;
+    stroke: #204d90;
+}
+
+svg .implicit-attribute {
+    font-size: 0.8em;
+    fill: #555;
+}
+
+svg .entity-title {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+svg .entity-type {
+    font-size: 1em;
+    font-style: oblique;
+}
+
+svg .invisible {
+    display: none;
+}
+
+svg .relation-line {
+    stroke: black;
+    stroke-width: 2;
+}
+svg .relation-line-hidden {
+    opacity: 0;
+}
+
+svg .relation-text {
+    font-size: .8em;
+}
+

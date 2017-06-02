@@ -1,0 +1,409 @@
+/*
+ * Copyright 2017 BTC Business Technology AG
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+/* First part based on HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+
+html {
+    color: #111;
+    font-family: Roboto, sans-serif;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    overflow: hidden; /* Somewhere is a few pixel oversized element causing a scrollbar to appear. This removes it for now*/
+}
+
+.legal-bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+.legal {
+    font-size: 0.8em;
+    color: grey;
+    margin: 5px;
+}
+
+.legal a {
+    text-decoration: none;
+    color: grey;
+    margin: 0 5px;
+}
+
+.legal a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo > * {
+    margin: 15px 10px;
+    font-weight: 400;
+}
+
+a.button {
+    transition: border-color .5s, background-color .5s, color .5s;
+}
+
+a.button {
+    color: #204d90;
+    font-size: 1em;
+    margin: 0.5em 0.5em;
+    padding: 0.3em 2em;
+    border-radius: 2em;
+    border: 2px solid #204d90;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+a.button:hover {
+    color: #11294d;
+    border-color: #11294d;
+    text-decoration: none;
+}
+
+a.button.primary {
+    color: white;
+    font-weight: 500;
+    background-color: #204d90;
+}
+
+a.button.primary:hover {
+    background-color: #11294d;
+    border-color: #11294d;
+    text-decoration: none;
+}
+
+.CodeMirror {
+    border: 1px solid #eee;
+    height: 100%;
+}
+
+#json-input {
+    min-height: 200px;
+    min-width: 200px;
+    width: 100vh;
+    height: 70vh;
+    max-width: 80vw;
+    z-index: 100;
+}
+
+#file-drop-zone {
+    display: none;
+}
+
+#file-drop-zone {
+    position: absolute;
+    top: 10px;
+    min-height: 200px;
+    min-width: 200px;
+    width: calc(100vh - 50px);
+    height: calc(70vh - 50px);
+    max-width: 80vw;
+    border: 3px dashed #c6050e;
+    color: #c6050e;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1;
+    opacity: 0;
+    -webkit-transition: opacity 0.2s linear;
+    -moz-transition: opacity 0.2s linear;
+    -o-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
+}
+
+.big-icon {
+    font-size: 7em !important;
+}
+
+#file-drop-zone > .file-drop-text {
+    font-size: 1.5em;
+}
+
+.center-flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#file-drop-alternative {
+    color: #555;
+    text-decoration: underline;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#file-input {
+    display: none;
+}
+
+#file-progress-bar {
+    margin: 10px 0;
+    height: 10px;
+    width: 70%;
+    clear: both;
+    opacity: 0;
+    -webkit-transition: opacity 0.2s linear;
+    -moz-transition: opacity 0.2s linear;
+    -o-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
+}
+
+#file-progress-bar.loading {
+    opacity: 1;
+}
+
+#file-progress-percent {
+    height: 100%;
+    width: 0;
+    background-color: #c6050e;
+    border-radius: 5px;
+}
+
+#visualization-container {
+    display: none;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#visualization-controls {
+    width: 30vw;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+#visualization {
+    width: 100%;
+    border-right: 1px solid darkgray;
+    background: url(../img/background-watermark3.png) no-repeat 80% 80%;
+}
+
+.empty-notice {
+    display: none;
+}
+
+#detail-viewer {
+    flex-grow: 5;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid darkgray;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 0.8em;
+}
+
+#detail-viewer p.label {
+    font-size: 1.2em;
+}
+
+#detail-viewer table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#detail-viewer table td {
+    width: 50%;
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    padding: 5px;
+}
+
+#detail-viewer table tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+#detail-viewer .content {
+    width: 100%;
+}
+
+#detail-viewer:not([data-id]) .content {
+    display: none;
+}
+
+#detail-viewer:not([data-id]) .empty-notice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#detail-relations-no-content, #detail-explicit-attributes-no-content, #detail-implicit-attributes-no-content {
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+}
+
+.control-element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.control-element p {
+    color: black;
+}
+
+span.relation-arrow {
+    padding: 0 10px;
+}
+
+span.relation-target {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+div.relation-div {
+    margin: 5px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 666;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid darkgray;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#share-modal-content {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#share-modal-content input {
+    margin: 10px;
+}
+
+#png-export-modal-content {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#png-export-size {
+    align-self: center;
+}
+
+/* ==========================================================================
+    Material Icon Font
+   ========================================================================== */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../fonts/MaterialIcons-Regular.woff2) format('woff2'),
+    url(../fonts/MaterialIcons-Regular.woff) format('woff'),
+    url(../fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+

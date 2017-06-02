@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright 2017 BTC Business Technology AG
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>RedG Visualizer</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your
+    experience.</p>
+<![endif]-->
+
+<div id="data-input-container" class="center-flex-container">
+    <div class="logo">
+        <img src="img/redg-logo5.svg" width="100" height="100">
+        <h1>RedG Visualizer</h1>
+    </div>
+    <div id="json-input">
+
+    </div>
+    <div id="file-drop-zone">
+        <i class="material-icons big-icon">file_upload</i>
+        <p class="file-drop-text">Drop JSON file here</p>
+        <div id="file-progress-bar">
+            <div id="file-progress-percent"></div>
+        </div>
+        <p id="file-read-error"></p>
+    </div>
+    <span id="file-drop-alternative">Click here to choose a file or drop one into the text field</span>
+    <input id="file-input" type="file">
+    <a class="button primary" id="start-visualize">Visualize Me!</a>
+
+    <div class="legal legal-bottom">
+        <a href="/redg/about/#imprint">Impressum (Imprint)</a>
+        <span>|</span>
+        <a href="/redg/about/#privacy-policy">Privacy Policy</a>
+    </div>
+</div>
+
+<div id="visualization-container">
+    <div id="visualization">
+    </div>
+    <div id="visualization-controls">
+        <div class="control-element">
+            <p>
+                <label for="sqlValueToggle">Show SQL names</label>
+            </p>
+            <input type="checkbox" id="sqlValueToggle">
+        </div>
+        <div class="control-element">
+            <p>
+                <label for="relationNameToggle">Show relation names</label>
+            </p>
+            <input type="checkbox" id="relationNameToggle" checked>
+        </div>
+        <div class="control-element">
+            <p>Dummy Entity Visibility</p>
+            <select id="dummy-visibility">
+                <option value="full" selected>Full</option>
+                <option value="minimal">Minimal</option>
+                <option value="invisible">Invisible</option>
+            </select>
+        </div>
+        <div class="control-element">
+            <p>Existing Entity Visibility</p>
+            <select id="existing-visibility">
+                <option value="full" selected>Full</option>
+                <option value="minimal">Minimal</option>
+                <option value="invisible">Invisible</option>
+            </select>
+        </div>
+        <div class="control-element">
+            <a id="export-png" class="button primary">Export view as PNG</a>
+            <a id="export-svg" class="button primary">Export as SVG</a>
+        </div>
+        <div class="control-element">
+            <a id="share" class="button primary">Share</a>
+            <div class="legal">
+                <a href="/redg/about/#imprint">Impressum (Imprint)</a>
+                <span>|</span>
+                <a href="/redg/about/#privacy-policy">Privacy Policy</a>
+            </div>
+        </div>
+
+        <div id="detail-viewer">
+            <div class="content">
+                <h2 id="detail-title">Detail view</h2>
+                <p class="label">Explicit Attributes:</p>
+                <table id="detail-explicit-attributes">
+                </table>
+                <p id="detail-explicit-attributes-no-content">No explicit attributes</p>
+                <p class="label">Implicit Attributes</p>
+                <table id="detail-implicit-attributes">
+                </table>
+                <p id="detail-implicit-attributes-no-content">No implicit attributes</p>
+                <p class="label">Relations</p>
+                <div id="detail-relations">
+
+                </div>
+                <p id="detail-relations-no-content">No relations to other entities</p>
+            </div>
+            <div class="empty-notice">
+                <p>Select an entity by clicking on it to show its details here</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div id="png-export-modal" class="modal">
+    <div class="modal-content" id="png-export-modal-content">
+        <h3>PNG Export Settings</h3>
+        <span>Set the scale of the PNG export. The calculated dimensions are shown below. Click "Export" to download the PNG.</span>
+        <input type="range" min="0.5" max="10" value="1" step="0.5" id="png-export-scale">
+        <span id="png-export-size">0 &times; 0</span>
+        <div class="modal-buttons">
+            <a class="button" id="png-export-cancel">Cancel</a>
+            <a class="button primary" id="png-export-confirm">Export</a>
+        </div>
+    </div>
+</div>
+
+<div id="share-modal" class="modal">
+    <div class="modal-content" id="share-modal-content">
+        <h3>Share link</h3>
+        <span>Anyone opening this link will see the same data set you currently see. The layout does not get transferred, only the model data.</span>
+        <input type="url" readonly id="share-url" onClick="this.setSelectionRange(0, this.value.length)">
+        <div class="modal-buttons">
+            <a class="button primary" id="share-close">Close</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

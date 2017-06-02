@@ -1,0 +1,38 @@
+/*
+ * Copyright 2017 BTC Business Technology AG
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+.cm-s-redg span.cm-atom { color: #6C8CD5; }
+.cm-s-redg span.cm-number { color: #6C8CD5; }
+.cm-s-redg span.cm-def { text-decoration:underline; }
+.cm-s-redg span.cm-variable { color: black; }
+.cm-s-redg span.cm-variable-2 { color:black; }
+.cm-s-redg span.cm-variable-3 { color: black; }
+.cm-s-redg span.cm-property { color: #c6050e !important; }
+.cm-s-redg span.cm-operator {}
+.cm-s-redg span.cm-comment { color: darkgrey; font-style: italic; }
+.cm-s-redg span.cm-string { color: #204d90; }
+.cm-s-redg span.cm-meta {}
+.cm-s-redg span.cm-qualifier {}
+.cm-s-redg span.cm-builtin {}
+.cm-s-redg span.cm-bracket {}
+.cm-s-redg span.cm-tag {}
+.cm-s-redg span.cm-attribute {}
+.cm-s-redg span.cm-error { color: #f00; }
+
+.cm-s-redg .CodeMirror-activeline-background { background: #e8f2ff; }
+.cm-s-redg .CodeMirror-matchingbracket { color:black !important; font-weight: bold; outline: 1px solid lightgrey }
+.cm-s-redg .CodeMirror-selected { background: #DDD !important; }
