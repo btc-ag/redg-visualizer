@@ -288,7 +288,7 @@ export class DrawManager {
     public updateRelations() {
 
         let relationsGroups = this.relationGroup.selectAll<SVGGElement, RedGRelation>("g.relation")
-            .data(this._relations);
+            .data(this._relations.filter((r) => r.to !== "null"));
 
         relationsGroups.exit().remove();
         relationsGroups

@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2017 BTC Business Technology AG
  *
@@ -50,7 +49,7 @@ export class DetailViewManager {
         }
         id = id.substr(1, id.length - 1);
         let object = RedGModelHelper.findObjectById(id, this._data.objects);
-        this.titleElem.text(this.showSqlNames ? object.sqlName : object.type)
+        this.titleElem.text(this.showSqlNames ? object.sqlName : object.type);
 
         let explicitTable = d3.select("#detail-explicit-attributes");
         let expRows = explicitTable.selectAll("tr").data(object.explicitFields);
@@ -93,14 +92,14 @@ export class DetailViewManager {
         let relations = this._data.relationships
             .filter((relation) => relation.from === id)
             .map((relation) => {
-            return {relation, target: RedGModelHelper.findObjectById(relation.to, this._data.objects)}
+                return {relation, target: RedGModelHelper.findObjectById(relation.to, this._data.objects)}
             });
         let detailRelationsDiv = d3.select("#detail-relations");
         let detRels = detailRelationsDiv.selectAll("div").data(relations);
         detRels.select("span.relation-name").text((d) => this.showSqlNames ? d.relation.sqlName : d.relation.name);
         detRels.select("span.relation-target")
-            .attr("data-target-id", (d) => d.target.id)
-            .text((d) => this.showSqlNames ? d.target.sqlName : d.target.type);
+            .attr("data-target-id", (d) => (d.target) ? d.target.id : null)
+            .text((d) => this.showSqlNames ? ((d.target) ? d.target.sqlName : "NULL") : ((d.target) ? d.target.type : "null"));
         detRels.exit().remove();
         let newDetDiv = detRels.enter().append("div").classed("relation-div", true);
         newDetDiv.append("span")
@@ -111,10 +110,12 @@ export class DetailViewManager {
             .text("\u2192");
         newDetDiv.append<HTMLSpanElement>("span")
             .classed("relation-target", true)
-            .attr("data-target-id", (d) => d.target.id)
-            .text((d) => this.showSqlNames ? d.target.sqlName : d.target.type)
+            .attr("data-target-id", (d) => (d.target) ? d.target.id : null)
+            .text((d) => this.showSqlNames ? ((d.target) ? d.target.sqlName : "NULL") : ((d.target) ? d.target.type : "null"))
             .on("click", (d) => {
-                selectElement("e" + d.target.id);
+                if (d.target) {
+                    selectElement("e" + d.target.id);
+                }
             });
 
         if (detailRelationsDiv.selectAll("div").empty()) {

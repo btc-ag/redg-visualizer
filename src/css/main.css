@@ -311,7 +311,7 @@ span.relation-arrow {
     padding: 0 10px;
 }
 
-span.relation-target {
+span.relation-target[data-target-id] {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
