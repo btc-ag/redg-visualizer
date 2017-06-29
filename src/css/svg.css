@@ -36,7 +36,7 @@ svg .entity-separator-line {
 }
 
 svg .explicit-attribute {
-    font-size: 0.8em;
+    font-size: 13px;
 }
 
 svg .existing .entity-box {
@@ -51,17 +51,18 @@ svg .dummy .entity-box {
 }
 
 svg .implicit-attribute {
-    font-size: 0.8em;
+    font-size: 13px;
     fill: #555;
 }
 
 svg .entity-title {
     font-weight: bold;
+    font-size: 16px;
     text-decoration: underline;
 }
 
 svg .entity-type {
-    font-size: 1em;
+    font-size: 16px;
     font-style: oblique;
 }
 
@@ -78,6 +79,6 @@ svg .relation-line-hidden {
 }
 
 svg .relation-text {
-    font-size: .8em;
+    font-size: 13px;
 }
 
